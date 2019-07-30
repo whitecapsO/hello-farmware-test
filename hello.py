@@ -33,15 +33,8 @@ sequenceBeforeMove = get_config_value(farmware_name='Gridit', config_name='seque
 sequenceAfterMove = get_config_value(farmware_name='Gridit', config_name='sequenceAfterMove', value_type=str)
 
 device.log(message='Setting sequenceId variables', message_type='success')
-if sequenceBeforeMove != "":
-    sequenceBeforeMoveId = app.find_sequence_by_name(name=sequenceBeforeMove)
-else
-    sequenceBeforeMoveId = 0
-
-if sequenceAfterMove != "":
-    sequenceAfterMoveId = app.find_sequence_by_name(name=sequenceAfterMove)
-else
-    sequenceAfterMoveId = 0
+sequenceBeforeMoveId = app.find_sequence_by_name(name=sequenceBeforeMove)
+sequenceAfterMoveId = app.find_sequence_by_name(name=sequenceAfterMove)
 
 # Start the grid movement
 device.log(message='Starting row loop', message_type='success')
