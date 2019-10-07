@@ -4,7 +4,7 @@
  "author": "whitecapsO",
  "description": "A simple Farmware example that tells FarmBot to log a new message.",
  "farmware_manifest_version": "1.0.0",
- "farmware_tools_version": "v3.2.2",
+ "farmware_tools_version": "3.2.2",
  "version": "1.0.0",
  "min_os_version_major": 6,
  "url": "https://raw.githubusercontent.com/whitecapsO/hellofarmware/master/manifest.json",
