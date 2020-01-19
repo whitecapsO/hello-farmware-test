@@ -4,12 +4,12 @@
  "author": "whitecaps0",
  "description": "A simple Farmware example that tells FarmBot to log a new message including the provided input.",
  "farmware_manifest_version": "2.0.0",
- "package_version": "1.0.9",
+ "package_version": "1.0.1",
  "farmbot_os_version_requirement": ">= 8.0.0",
   	"url": "https://raw.githubusercontent.com/whitecapsO/hellofarmware/master/manifest.json",
 	"zip": "https://github.com/whitecapsO/hellofarmware/archive/master.zip",
  "executable": "python",
- "args": "hello-farmware-input-master/hello.py",
+ "args": "hellofarmware-master/hello.py",
  "config": {
     "1": {"name": "input", "label": "Input (anything you'd like)", "value": "default"}
  }
