@@ -1,5 +1,5 @@
 {
- "package": "Hello Farmware Input",
+ "package": "HelloFarmware",
  "language": "python",
  "author": "whitecaps0",
  "description": "A simple Farmware example that tells FarmBot to log a new message including the provided input.",
