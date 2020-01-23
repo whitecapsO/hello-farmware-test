@@ -4,7 +4,7 @@ from farmware_tools import env
 from farmware_tools import get_config_value
 
 try:
-    INPUT_VALUE = get_config_value(farmware_name="HelloFarmware", config_name="input", value_type=str)
+    INPUT_VALUE = get_config_value(farmware_name="hellofarmware", config_name="input", value_type=str)
     device.log(message="Hello Farmware! Input was: {}".format(INPUT_VALUE), message_type="success")
     # device.log(message="Message 1 Test", message_type="success")
     # device.log(message="Message 2 Test", message_type="success")
