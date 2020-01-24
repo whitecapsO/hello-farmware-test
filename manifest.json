@@ -4,7 +4,7 @@
 	"author": "FarmBot, Inc.",
 	"description": "A simple Farmware example that tells FarmBot to log a new message including the provided input.",
 	"farmware_manifest_version": "2.0.0",
-	"package_version": "1.0.1",
+	"package_version": "1.0.2",
 	"farmbot_os_version_requirement": ">= 8.0.0",
 	"url": "https://raw.githubusercontent.com/whitecapsO/hello-farmware-test/master/manifest.json",
 	"zip": "https://github.com/whitecapsO/hello-farmware-test/archive/master.zip",
