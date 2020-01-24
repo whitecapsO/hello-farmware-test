@@ -18,3 +18,23 @@ device.move_absolute(
 device.assemble_coordinate(100, 100, 0),
 100,
 device.assemble_coordinate(0, 0, 0))
+
+device.move_absolute(
+device.assemble_coordinate(200, 200, 0),
+100,
+device.assemble_coordinate(0, 0, 0))
+
+device.move_absolute(
+device.assemble_coordinate(300, 300, 0),
+100,
+device.assemble_coordinate(0, 0, 0))
+
+device.move_absolute(
+device.assemble_coordinate(400, 400, 0),
+100,
+device.assemble_coordinate(0, 0, 0))
+
+device.move_absolute(
+device.assemble_coordinate(500, 500, 0),
+100,
+device.assemble_coordinate(0, 0, 0))
