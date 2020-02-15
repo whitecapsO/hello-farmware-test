@@ -17,7 +17,7 @@ device.log(message="Message 5 Test", message_type="success") """
 
 device.move_absolute(
 device.assemble_coordinate(2218.2, 41, 0),
-150,
+100,
 device.assemble_coordinate(0, 0, 0))
 
 currentPosition = device.get_current_position()
