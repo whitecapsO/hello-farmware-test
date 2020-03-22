@@ -1,64 +1,28 @@
 #!/usr/bin/env python
 
 '''Hello Farmware Test
-
-A simple Farmware example that tells FarmBot to log a new message including the provided input.
+Farmware that creates a new or updates an existing enviroment variable on the Raspberry Pi. 
+Had to reuse the original test to do this as Farmbot wouldn't load new Farmwares.
 '''
 
-from farmware_tools import get_config_value, device
+from farmware_tools import device
+from farmware_tools import env
+from farmware_tools import get_config_value
 
 evName = get_config_value(farmware_name='Hello Farmware Test', config_name='input', value_type=str)
 evValue = get_config_value(farmware_name='Hello Farmware Test', config_name='input', value_type=str)
 
-# Load the arguements
-# evName = get_config_value(farmware_name='FarmwareEnVar', config_name='evName', value_type=str)
-# evValue = get_config_value(farmware_name='FarmwareEnVar', config_name='evValue', value_type=str)
+device.log(message="Recieved environment variable name: " + str(evName) + " environment variable value: " + str(evValue), message_type="success")
 
-device.log(message="Creating environment variable: " + str(evName) + " value is: " + str(evValue), message_type="success")
-
-if evName != "":
-    # Check if the environment variable already exists and if so set the value
-    currentValue = os.environ.get(evName,"")
-    if currentValue != "" :
-        device.log(message="Environment variable exists for name: " + str(evName) + " current value is: " + str(currentValue) + " setting value to: " + str(evValue), message_type="success")
-        os.environ['evName'] = evValue
-    # Otherwise create a new environment variable and set the value
-    else :
+if evName == "default" :
+    device.log(message="Please enter an environment variable name" + str(evValue), message_type="success")
+elif evName == "default" :
+    device.log(message="Please enter an environment variable value" + str(evValue), message_type="success")
+else :
+    evCurrentValue = env.os.environ.get(evName, False)
+    if evCurrentValue == False :
         device.log(message="Creating environment variable: " + str(evName) + " value is: " + str(evValue), message_type="success")
-        os.environ['evName'] = evValue
-
-''' #device.log(message='Hello Farmware! Test input was: {}'.format(INPUT_VALUE), message_type='success')
-""" device.log(message="Message 1 Test", message_type="success")
-device.log(message="Message 2 Test", message_type="success")
-device.log(message="Message 3 Test", message_type="success")
-device.log(message="Message 4 Test", message_type="success")
-device.log(message="Message 5 Test", message_type="success") """
-
-currentPosition = device.get_current_position()
-
-device.move_absolute(
-device.assemble_coordinate(2218.2, 41, 0),
-100,
-device.assemble_coordinate(0, 0, 0))
-
-device.log(message="currentPosition:" + str(currentPosition), message_type="success")
-
-# device.move_absolute(
-# device.assemble_coordinate(200, 200, 0),
-# 100,
-# device.assemble_coordinate(0, 0, 0))
-
-# device.move_absolute(
-# device.assemble_coordinate(300, 300, 0),
-# 100,
-# device.assemble_coordinate(0, 0, 0))
-
-# device.move_absolute(
-# device.assemble_coordinate(400, 400, 0),
-# 100,
-# device.assemble_coordinate(0, 0, 0))
-
-# device.move_absolute(
-# device.assemble_coordinate(500, 500, 0),
-# 100,
-# device.assemble_coordinate(0, 0, 0)) '''
+        env.os.environ[evName] = evValue
+    else :
+        device.log(message="Environment variable exists for name: " + str(evName) + " current value is: " + str(evCurrentValue) + " setting value to: " + str(evValue), message_type="success")
+        env.os.environ[evName] = evValue
