@@ -7,8 +7,26 @@ A simple Farmware example that tells FarmBot to log a new message including the 
 
 from farmware_tools import get_config_value, device
 
-INPUT_VALUE = get_config_value(farmware_name='Hello Farmware Test', config_name='input', value_type=str)
-#device.log(message='Hello Farmware! Test input was: {}'.format(INPUT_VALUE), message_type='success')
+evName = get_config_value(farmware_name='Hello Farmware Test', config_name='input', value_type=str)
+evValue = get_config_value(farmware_name='Hello Farmware Test', config_name='input', value_type=str)
+
+# Load the arguements
+# evName = get_config_value(farmware_name='FarmwareEnVar', config_name='evName', value_type=str)
+# evValue = get_config_value(farmware_name='FarmwareEnVar', config_name='evValue', value_type=str)
+
+#
+if evName != "":
+    # Check if the environment variable already exists and if so set the value
+    currentValue = os.environ.get(evName,"")
+    if currentValue != "" :
+        device.log(message="Environment variable exists for name: " + str(evName) + " current value is: " + str(currentValue) + " setting value to: " + str(evValue), message_type="success")
+        os.environ['evName'] = evValue
+    # Otherwise create a new environment variable and set the value
+    else :
+        device.log(message="Creating environment variable: " + str(evName) + " value is: " + str(evValue), message_type="success")
+        os.environ['evName'] = evValue
+
+''' #device.log(message='Hello Farmware! Test input was: {}'.format(INPUT_VALUE), message_type='success')
 """ device.log(message="Message 1 Test", message_type="success")
 device.log(message="Message 2 Test", message_type="success")
 device.log(message="Message 3 Test", message_type="success")
@@ -42,4 +60,4 @@ device.log(message="currentPosition:" + str(currentPosition), message_type="succ
 # device.move_absolute(
 # device.assemble_coordinate(500, 500, 0),
 # 100,
-# device.assemble_coordinate(0, 0, 0))
+# device.assemble_coordinate(0, 0, 0)) '''
