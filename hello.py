@@ -9,8 +9,8 @@ from farmware_tools import device
 from farmware_tools import env
 from farmware_tools import get_config_value
 
-evName = get_config_value(farmware_name='Hello Farmware Test', config_name='input', value_type=str)
-evValue = get_config_value(farmware_name='Hello Farmware Test', config_name='input', value_type=str)
+evName = get_config_value(farmware_name='Hello Farmware Test', config_name='evName', value_type=str)
+evValue = get_config_value(farmware_name='Hello Farmware Test', config_name='evValue', value_type=str)
 
 device.log(message="Recieved environment variable name: " + str(evName) + " environment variable value: " + str(evValue), message_type="success")
 
