@@ -33,3 +33,10 @@ else :
         json.dump(config, f)
         f.close()
     device.log(message="Created new config file: " + str(configFileName) + " and wrote environment variables to it", message_type="success")
+
+    # Test reading of config file
+    with open(configFileName, 'r') as f:
+        configContents = json.load(f)
+        device.log(message="Reading config file: " + str(evName) + ": " + str(config[evName]), message_type="success")    
+        f.close()
+
