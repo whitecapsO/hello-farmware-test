@@ -32,5 +32,6 @@ else :
     # Create a new file and load the config
     with open(fileName, 'w') as f:
         json.dump(config, f)
+        filepath = os.path.abspath(f.name)
         f.close()
-    device.log(message="Created new config file: " + str(fileName) + " and wrote environment variables to it", message_type="success")
+    device.log(message="Created new config file: " + str(fileName) + " path: " + str(filepath) + " and wrote environment variables to it", message_type="success")
