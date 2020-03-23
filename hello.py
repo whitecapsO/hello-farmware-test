@@ -20,18 +20,17 @@ if evName == "default" :
 elif evValue == "default" :
     device.log(message="Please enter an environment variable value" + str(evValue), message_type="success")
 else :
-    configFileName = 'config.json'
     config = {evName: evValue}   
-    fileName = '/tmp/farmware/' + configFileName
+    configFileName = '/tmp/farmware/config.json'
 
     # If the file exists delete it
-    if os.path.isfile(fileName) :
-        os.remove(fileName)
-        device.log(message="Config file: " + str(fileName) + " existed so deleteing it", message_type="success")
+    if os.path.isfile(configFileName) :
+        os.remove(configFileName)
+        device.log(message="Config file: " + str(configFileName) + " existed so deleteing it", message_type="success")
     
     # Create a new file and load the config
-    with open(fileName, 'w') as f:
+    with open(configFileName, 'w') as f:
         json.dump(config, f)
         filepath = os.path.abspath(f.name)
         f.close()
-    device.log(message="Created new config file: " + str(fileName) + " path: " + str(filepath) + " and wrote environment variables to it", message_type="success")
+    device.log(message="Created new config file: " + str(configFileName) + " path: " + str(filepath) + " and wrote environment variables to it", message_type="success")
