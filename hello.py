@@ -13,6 +13,9 @@ import os
 evName = get_config_value(farmware_name='Hello Farmware Test', config_name='evName', value_type=str)
 evValue = get_config_value(farmware_name='Hello Farmware Test', config_name='evValue', value_type=str)
 
+fileName = ''
+filePath = ''
+
 device.log(message="Recieved environment variable name: " + str(evName) + " environment variable value: " + str(evValue), message_type="success")
 
 if evName == "default" :
@@ -31,5 +34,7 @@ else :
     # Create a new file and load the config
     with open(configFileName, 'w') as f:
         json.dump(config, f)
+        fileName = f.name
+        filePath = os.path.abspath(f.name)
         f.close()
-    device.log(message="Created new config file: " + str(configFileName) + " and wrote environment variables to it", message_type="success")
+    device.log(message="Created new config file: " + str(fileName) + " path: " + str(filePath) + " and wrote environment variables to it", message_type="success")
