@@ -22,8 +22,7 @@ elif evValue == "default" :
 else :
     configFileName = 'config.json'
     config = {evName: evValue}   
-    fileDir = os.path.dirname(os.path.realpath('__file__'))
-    fileName = os.path.join(fileDir, '../' + configFileName)
+    fileName = '/tmp/farmware/' + configFileName
 
     # If the file exists delete it
     if os.path.isfile(fileName) :
@@ -34,4 +33,4 @@ else :
     with open(fileName, 'w') as f:
         json.dump(config, f)
         f.close()
-    device.log(message="Created new config file: " + str(fileName) + " path: " + str(fileDir) + " and wrote environment variables to it", message_type="success")
+    device.log(message="Created new config file: " + str(fileName) + " and wrote environment variables to it", message_type="success")
